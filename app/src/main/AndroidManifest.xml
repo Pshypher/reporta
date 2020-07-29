@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+<<<<<<< HEAD
         <activity android:name=".user.onboarding.OnBoardingActivity"
             android:theme="@style/OnboardingTheme"></activity>
         <activity android:name=".user.signup.detailed.DetailedSignupActivity" />
@@ -16,6 +17,10 @@
         <activity
             android:name=".SplashScreenActivity"
             android:theme="@style/SplashScreenTheme">
+=======
+        <activity android:name=".user.signup.basic.BasicSignupActivity" />
+        <activity android:name=".MainActivity">
+>>>>>>> Add Firebase to project
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
