@@ -9,8 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".user.signup.basic.BasicSignupActivity"></activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".user.onboarding.OnBoardingActivity"></activity>
+        <activity android:name=".user.signup.detailed.DetailedSignupActivity" />
+        <activity android:name=".user.signup.basic.BasicSignupActivity" />
+        <activity
+            android:name=".SplashScreenActivity"
+            android:theme="@style/SplashScreenTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
