@@ -1,16 +1,36 @@
 <resources>
-    <string name="app_name">Electronic Incident Report</string>
+
+    <string name="app_name">Reporta</string>
+
     <string name="sign_up">Sign Up</string>
+
     <string name="email_address">Email Address</string>
+
     <string name="password">Password</string>
+
     <string name="continue_lbl">Continue</string>
+
     <string name="or_register">Or register with</string>
+
     <string name="owns_account">Already have an account?</string>
+
     <string name="login">Log in</string>
+
     <string name="header">Enter your personal details</string>
+
     <string name="full_name">Full Name</string>
+
     <string name="username">Username</string>
+
     <string name="phone_number">Phone Number</string>
+
     <string name="contact_address">Contact Address</string>
+
     <string name="signup">Sign Up</string>
+
+    <string name="header_text">Report Incidents with Ease</string>
+
+    <string name="onboarding_text_a">Document important events and issues around you with customised incident forms.</string>
+
+    <string name="onboarding_text_b">Capture audio, photos and videos alongside all important incident details.</string>
 </resources>
