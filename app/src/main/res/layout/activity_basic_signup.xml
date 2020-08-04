@@ -15,11 +15,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginLeft="32dp"
         android:layout_marginTop="28dp"
-<<<<<<< HEAD
         android:letterSpacing="0.01"
-=======
-        android:letterSpacing="0.15"
->>>>>>> Add Firebase to project
         android:text="@string/sign_up"
         android:textColor="#081452"
         android:textSize="22sp"
