@@ -11,7 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.android.reporta.R;
-import com.example.android.reporta.user.signup.basic.BasicSignupActivity;
+import com.example.android.reporta.user.signup.basic.BasicSignUpActivity;
 
 public class OnBoardingActivity extends AppCompatActivity
         implements SliderAdapter.OnSlideShiftedListener {
@@ -40,7 +40,7 @@ public class OnBoardingActivity extends AppCompatActivity
             public void onClick(View v) {
                 mCurrentPage++;
                 if (mCurrentPage == mTabs.length) {
-                    Intent intent = new Intent(OnBoardingActivity.this, BasicSignupActivity.class);
+                    Intent intent = new Intent(OnBoardingActivity.this, BasicSignUpActivity.class);
                     startActivity(intent);
                 }
                 mSlideViewPager.setCurrentItem(mCurrentPage);

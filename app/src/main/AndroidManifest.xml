@@ -12,8 +12,8 @@
         <activity
             android:name=".user.onboarding.OnBoardingActivity"
             android:theme="@style/OnboardingTheme" />
-        <activity android:name=".user.signup.detailed.DetailedSignupActivity" />
-        <activity android:name=".user.signup.basic.BasicSignupActivity" />
+        <activity android:name=".user.signup.detailed.DetailedSignUpActivity" />
+        <activity android:name=".user.signup.basic.BasicSignUpActivity" />
         <activity
             android:name=".SplashScreenActivity"
             android:theme="@style/SplashScreenTheme">
