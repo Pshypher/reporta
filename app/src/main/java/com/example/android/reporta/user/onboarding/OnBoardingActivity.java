@@ -47,7 +47,7 @@ public class OnBoardingActivity extends AppCompatActivity
 
             }
         });
-        mPreviousButton = (ImageButton) findViewById(R.id.button_previous);
+        mPreviousButton =  findViewById(R.id.button_previous);
         mPreviousButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -46,6 +46,7 @@ public class BasicSignUpActivity extends AppCompatActivity {
         setContentView(R.layout.activity_basic_signup);
 
         initFields();
+        verifyUserInput();
         continueSignUp();
         handleGoogleSignUp();
         //TODO: handleFacebookSignUp
@@ -55,7 +56,7 @@ public class BasicSignUpActivity extends AppCompatActivity {
         mContinueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (verifyUserInput(mEditTextEmailAddress, mEditTextPassword)) {
+                if (mIsEmailVerified && mIsPasswordVerified) {
                     mEmailAddress = mEditTextEmailAddress.getText().toString();
                     mPassword = mEditTextPassword.getText().toString();
                     Intent continueSignUpIntent =
@@ -70,8 +71,8 @@ public class BasicSignUpActivity extends AppCompatActivity {
         });
     }
 
-    private boolean verifyUserInput(final EditText emailInput, final EditText passwordInput) {
-        emailInput.addTextChangedListener(new TextWatcher() {
+    private void verifyUserInput() {
+        mEditTextEmailAddress.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
@@ -87,14 +88,14 @@ public class BasicSignUpActivity extends AppCompatActivity {
                 if (!TextUtils.isEmpty(editable)) {
                     Log.d(TAG, "Email: " + editable.toString());
                     mIsEmailVerified = true;
-                    emailInput.setError(null);
+                    mEditTextEmailAddress.setError(null);
                 } else {
                     mIsEmailVerified = false;
-                    emailInput.setError(EMPTY_FIELD_ERROR);
+                    mEditTextEmailAddress.setError(EMPTY_FIELD_ERROR);
                 }
             }
         });
-        passwordInput.addTextChangedListener(new TextWatcher() {
+        mEditTextPassword.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
@@ -111,8 +112,7 @@ public class BasicSignUpActivity extends AppCompatActivity {
                     if (editable.length() > MINIMUM_PASSWORD_CHAR) {
                         mIsPasswordVerified = true;
                         mEditTextPassword.setError(null);
-                    }
-                    else {
+                    } else {
                         mIsPasswordVerified = false;
                         mEditTextPassword.setError(PASSWORD_TOO_WEAK);
                     }
@@ -123,8 +123,6 @@ public class BasicSignUpActivity extends AppCompatActivity {
                 }
             }
         });
-
-        return mIsEmailVerified && mIsPasswordVerified;
     }
 
     private void handleGoogleSignUp() {
