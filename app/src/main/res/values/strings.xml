@@ -31,4 +31,9 @@
     <string name="onboarding_text_a">Document important events and issues around you with customised incident forms.</string>
 
     <string name="onboarding_text_b">Capture audio, photos and videos alongside all important incident details.</string>
+
+    <!--For facebook authentication-->
+    <string name="facebook_app_id">1688293747988063</string>
+    <string name="fb_login_protocol_scheme">fb1688293747988063</string>
+
 </resources>

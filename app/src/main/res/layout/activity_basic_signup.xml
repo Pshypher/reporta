@@ -134,21 +134,21 @@
         android:background="@drawable/ellipse"
         android:elevation="10dp"
         android:src="@drawable/ic_google"
-        app:layout_constraintEnd_toStartOf="@id/logo_facebook"
+        app:layout_constraintEnd_toStartOf="@id/login_facebook"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/or_register" />
 
-    <ImageButton
-        android:id="@+id/logo_facebook"
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/login_facebook"
         android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_height="0dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/ellipse"
         android:elevation="10dp"
-        android:src="@drawable/ic_facebook"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/logo_google"
+        app:layout_constraintBottom_toBottomOf="@id/logo_google"
         app:layout_constraintTop_toBottomOf="@id/or_register" />
 
     <!-- Already have an account? -->
@@ -168,7 +168,7 @@
         app:layout_constraintEnd_toStartOf="@id/login"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/logo_facebook" />
+        app:layout_constraintTop_toBottomOf="@id/login_facebook" />
 
     <TextView
         android:id="@+id/login"
