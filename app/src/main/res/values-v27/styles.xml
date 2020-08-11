@@ -15,7 +15,13 @@
     </style>
 
     <style name="OnboardingTheme" parent="AppTheme">
-        <item name="android:statusBarColor">@color/colorOnBoardingBackground</item>
+        <item name="android:statusBarColor">@color/colorOnBoarding</item>
         <item name="android:windowLightStatusBar">false</item>
+    </style>
+
+    <style name="Theme.Transparent" parent="AppTheme">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:background">@color/colorCustomDialog</item>
     </style>
 </resources>

@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.android.reporta.user.signup.basic.BasicSignupActivity">
+    style="@style/Theme.Transparent">
 
     <!-- Sign Up -->
     <TextView
@@ -19,6 +18,7 @@
         android:text="@string/sign_up"
         android:textColor="#081452"
         android:textSize="22sp"
+        android:visibility="invisible"
         app:fontFamily="@font/avenir"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -38,6 +38,7 @@
         android:text="@string/email_address"
         android:textColor="#081452"
         android:textSize="16sp"
+        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/sign_up" />
 
@@ -50,8 +51,10 @@
         android:layout_marginTop="2dp"
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
+        android:enabled="false"
         android:inputType="textEmailAddress"
         android:textColor="#3E4347"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/email_address_label" />
@@ -71,19 +74,22 @@
         android:text="@string/password"
         android:textColor="#081452"
         android:textSize="16sp"
+        android:visibility="invisible"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/email_address" />
 
     <EditText
         android:id="@+id/password"
-        android:inputType="textPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="32dp"
         android:layout_marginTop="2dp"
         android:layout_marginRight="32dp"
+        android:enabled="false"
+        android:inputType="textPassword"
         android:textColor="#3E4347"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/password_label" />
@@ -96,12 +102,14 @@
         android:layout_marginTop="48dp"
         android:layout_marginRight="32dp"
         android:background="@drawable/rounded_corner_rectangle"
+        android:enabled="false"
         android:fontFamily="@font/avenir"
         android:letterSpacing="0.01"
         android:text="@string/continue_lbl"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
         android:textSize="16sp"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/password" />
@@ -121,6 +129,7 @@
         android:text="@string/or_register"
         android:textColor="#081452"
         android:textSize="16sp"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btn_continue" />
@@ -133,7 +142,9 @@
         android:layout_marginRight="28dp"
         android:background="@drawable/ellipse"
         android:elevation="10dp"
+        android:enabled="false"
         android:src="@drawable/ic_google"
+        android:visibility="invisible"
         app:layout_constraintEnd_toStartOf="@id/logo_facebook"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
@@ -146,7 +157,9 @@
         android:layout_marginTop="8dp"
         android:background="@drawable/ellipse"
         android:elevation="10dp"
+        android:enabled="false"
         android:src="@drawable/ic_facebook"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/logo_google"
         app:layout_constraintTop_toBottomOf="@id/or_register" />
@@ -165,6 +178,7 @@
         android:text="@string/owns_account"
         android:textColor="#081452"
         android:textSize="16sp"
+        android:visibility="invisible"
         app:layout_constraintEnd_toStartOf="@id/login"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
@@ -175,14 +189,42 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="4dp"
+        android:enabled="false"
         android:fontFamily="@font/avenir"
         android:letterSpacing="0.01"
         android:text="@string/login"
         android:textColor="#ED9E28"
         android:textSize="16sp"
+        android:visibility="invisible"
         app:layout_constraintBaseline_toBaselineOf="@id/owns_account"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/owns_account" />
+
+    <ImageView
+        android:id="@+id/img_curved_arrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
+        android:src="@drawable/ic_curved_arrow_right"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/or_register" />
+
+    <TextView
+        android:id="@+id/tv_text_tip"
+        android:layout_width="144dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="28dp"
+        android:layout_marginRight="28dp"
+        android:fontFamily="@font/avenir"
+        android:text="@string/hint"
+        android:textAlignment="gravity"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@id/img_curved_arrow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
 
     <ImageButton
         android:id="@+id/phone"
@@ -190,12 +232,10 @@
         android:layout_height="54dp"
         android:layout_marginTop="40dp"
         android:layout_marginRight="28dp"
-        android:background="@drawable/ellipse"
         android:elevation="15dp"
-        android:padding="16dp"
+        android:enabled="false"
         android:src="@drawable/ic_phone"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/login" />
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

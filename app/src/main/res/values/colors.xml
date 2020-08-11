@@ -4,5 +4,6 @@
     <color name="colorPrimaryDark">#081452</color>
     <color name="colorAccent">#ED9E28</color>
 
-    <color name="colorOnBoardingBackground">#0E1C66</color>
+    <color name="colorOnBoarding">#0E1C66</color>
+    <color name="colorCustomDialog">#88000000</color>
 </resources>
