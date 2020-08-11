@@ -9,8 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".user.onboarding.OnBoardingActivity"
-            android:theme="@style/OnboardingTheme"></activity>
+        <activity android:name=".user.signin.SigninActivity"></activity>
+        <activity
+            android:name=".user.onboarding.OnBoardingActivity"
+            android:theme="@style/OnboardingTheme" />
         <activity android:name=".user.signup.detailed.DetailedSignupActivity" />
         <activity android:name=".user.signup.basic.BasicSignupActivity" />
         <activity
