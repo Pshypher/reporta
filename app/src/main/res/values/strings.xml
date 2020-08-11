@@ -12,7 +12,11 @@
 
     <string name="or_register">Or register with</string>
 
+    <string name="or_sign_in_with">Or sign in with</string>
+
     <string name="owns_account">Already have an account?</string>
+
+    <string name="no_account">Don\'t have an account?</string>
 
     <string name="login">Log in</string>
 
@@ -28,10 +32,18 @@
 
     <string name="signup">Sign Up</string>
 
+    <string name="here">here</string>
+
+    <string name="email_hint">e.g. register@gmail.com</string>
+
+    <string name="password_hint">*******</string>
+
+    <string name="admin_sign_in">Sign in as admin</string>
+
     <string name="header_text">Report Incidents with Ease</string>
 
     <string name="onboarding_text_a">Document important events and issues around you with customised incident forms.</string>
 
     <string name="onboarding_text_b">Capture audio, photos and videos alongside all important incident details.</string>
-    <string name="hint">Click here to call for emergency services without signing up</string>
+    <string name="sign_in">Sign In</string>
 </resources>
