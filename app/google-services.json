@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "2550643873",
+    "firebase_url": "https://reporta-6c6d6.firebaseio.com",
+    "project_id": "reporta-6c6d6",
+    "storage_bucket": "reporta-6c6d6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:2550643873:android:9c8d95b0b0d703485d44e0",
+        "android_client_info": {
+          "package_name": "com.example.android.reporta"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "2550643873-5dr3eg1nott2pq41t90c2pp82g62go6t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.android.reporta",
+            "certificate_hash": "f17b7bffa115fa0f8007b54d6743ec4836ad9a44"
+          }
+        },
+        {
+          "client_id": "2550643873-fi7ohvf4pchtede3omso2co8l5jnt4lp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB5biJM_or1SdHDPocSvBnyrMgEeIaCILI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "2550643873-fi7ohvf4pchtede3omso2co8l5jnt4lp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
