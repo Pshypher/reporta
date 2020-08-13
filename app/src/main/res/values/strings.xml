@@ -36,8 +36,6 @@
 
     <string name="email_hint">e.g. register@gmail.com</string>
 
-    <string name="password_hint">*******</string>
-
     <string name="admin_sign_in">Sign in as admin</string>
 
     <string name="header_text">Report Incidents with Ease</string>
@@ -46,4 +44,8 @@
 
     <string name="onboarding_text_b">Capture audio, photos and videos alongside all important incident details.</string>
     <string name="sign_in">Sign In</string>
+
+    <!--For facebook authentication-->
+    <string name="facebook_app_id">1688293747988063</string>
+    <string name="fb_login_protocol_scheme">fb1688293747988063</string>
 </resources>
