@@ -167,19 +167,19 @@
         android:text="@string/no_account"
         android:textColor="#081452"
         android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@id/login"
+        app:layout_constraintEnd_toStartOf="@id/sign_up"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/logo_facebook" />
 
     <TextView
-        android:id="@+id/login"
+        android:id="@+id/sign_up"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="4dp"
         android:fontFamily="@font/avenir"
         android:letterSpacing="0.01"
-        android:text="@string/login"
+        android:text="@string/sign_up"
         android:textColor="#ED9E28"
         android:textSize="16sp"
         app:layout_constraintBaseline_toBaselineOf="@id/owns_account"
@@ -197,7 +197,7 @@
         android:padding="16dp"
         android:src="@drawable/ic_phone"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/login" />
+        app:layout_constraintTop_toBottomOf="@id/sign_up" />
 
     <!-- Admin Sign Up -->
 

@@ -90,6 +90,7 @@ public class BasicSignUpActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(BasicSignUpActivity.this, SignInActivity.class));
+                finish();
             }
         });
     }
