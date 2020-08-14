@@ -4,11 +4,13 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,12 +21,15 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import static android.content.Intent.ACTION_DIAL;
+
 public class SignInActivity extends AppCompatActivity {
 
     TextView mTextViewSignUp;
     EditText mEditTextEmailAddress;
     EditText mEditTextPassword;
     Button mButtonContinue;
+    ImageButton mButtonPhone;
 
     String mEmailAddress;
     String mPassword;
@@ -37,6 +42,28 @@ public class SignInActivity extends AppCompatActivity {
         initFields();
         signInUser();
         navigateToSignUp();
+        handleEmergencyCall();
+    }
+
+    private void handleEmergencyCall() {
+        mButtonPhone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent phoneIntent = new Intent(ACTION_DIAL);
+                Uri phoneNumber = Uri.parse("tel:119");
+                phoneIntent.setData(phoneNumber);
+                if (phoneIntent.resolveActivity(getPackageManager()) != null) {
+                    // TODO: Consider calling
+                    //    ActivityCompat#requestPermissions
+                    // here to request the missing permissions, and then overriding
+                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                    //                                          int[] grantResults)
+                    // to handle the case where the user grants the permission. See the documentation
+                    // for ActivityCompat#requestPermissions for more details.
+                    startActivity(phoneIntent);
+                }
+            }
+        });
     }
 
     private void navigateToSignUp() {
@@ -84,5 +111,6 @@ public class SignInActivity extends AppCompatActivity {
         mEditTextEmailAddress = findViewById(R.id.email_address);
         mEditTextPassword = findViewById(R.id.password);
         mButtonContinue = findViewById(R.id.btn_continue);
+        mButtonPhone = findViewById(R.id.phone);
     }
 }
