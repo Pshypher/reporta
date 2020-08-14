@@ -13,10 +13,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.android.reporta.R;
 import com.example.android.reporta.firebase_utils.FirebaseUtils;
+import com.example.android.reporta.user.signin.SignInActivity;
 import com.example.android.reporta.user.signup.detailed.DetailedSignUpActivity;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
@@ -50,6 +52,7 @@ public class BasicSignUpActivity extends AppCompatActivity {
     private static final int RC_SIGN_IN = 1;
     private static int MINIMUM_PASSWORD_CHAR = 6;
 
+    private TextView mTextViewLogin;
     private EditText mEditTextEmailAddress;
     private EditText mEditTextPassword;
     private Button mContinueButton;
@@ -79,6 +82,16 @@ public class BasicSignUpActivity extends AppCompatActivity {
         continueSignUp();
         handleGoogleSignUp();
         handleFacebookSignUp();
+        navigateToLogin();
+    }
+
+    private void navigateToLogin() {
+        mTextViewLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(BasicSignUpActivity.this, SignInActivity.class));
+            }
+        });
     }
 
     private void continueSignUp() {
@@ -247,6 +260,7 @@ public class BasicSignUpActivity extends AppCompatActivity {
     }
 
     private void initFields() {
+        mTextViewLogin = findViewById(R.id.login);
         mEditTextEmailAddress = findViewById(R.id.email_address);
         mEditTextPassword = findViewById(R.id.password);
         mContinueButton = findViewById(R.id.btn_continue);

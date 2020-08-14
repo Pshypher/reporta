@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".user.signin.SigninActivity"></activity>
+        <activity android:name=".user.signin.SignInActivity"></activity>
         <activity
             android:name=".user.onboarding.OnBoardingActivity"
             android:theme="@style/OnboardingTheme" />
