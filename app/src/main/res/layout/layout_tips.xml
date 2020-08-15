@@ -219,6 +219,7 @@
         android:layout_marginRight="28dp"
         android:fontFamily="@font/avenir"
         android:textAlignment="gravity"
+        android:text="@string/emergency_tip"
         android:textColor="@android:color/white"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@id/img_curved_arrow"

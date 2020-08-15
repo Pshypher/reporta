@@ -74,14 +74,16 @@ public class BasicSignUpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_basic_signup);
 
-        initFields();
+        /*initFields();
         verifyUserInput();
         continueSignUp();
         handleGoogleSignUp();
-        handleFacebookSignUp();
+        handleFacebookSignUp();*/
+
     }
 
-    private void continueSignUp() {
+
+    /*private void continueSignUp() {
         mContinueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -254,5 +256,5 @@ public class BasicSignUpActivity extends AppCompatActivity {
         mSignInButton = findViewById(R.id.login_google);
         mCallbackManager = CallbackManager.Factory.create();
         mFirebaseAuth = FirebaseUtils.getFirebaseAuth();
-    }
+    }*/
 }

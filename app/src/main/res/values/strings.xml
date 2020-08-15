@@ -40,6 +40,8 @@
 
     <string name="header_text">Report Incidents with Ease</string>
 
+    <string name="emergency_tip">Click here to call for emergency services without signing up</string>
+
     <string name="onboarding_text_a">Document important events and issues around you with customised incident forms.</string>
 
     <string name="onboarding_text_b">Capture audio, photos and videos alongside all important incident details.</string>

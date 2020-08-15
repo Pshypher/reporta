@@ -38,8 +38,9 @@ public class OnBoardingActivity extends AppCompatActivity
         mNextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mCurrentPage++;
-                if (mCurrentPage == mTabs.length) {
+                if (mCurrentPage < mTabs.length - 1) {
+                    mCurrentPage++;
+                } else {
                     Intent intent = new Intent(OnBoardingActivity.this, BasicSignUpActivity.class);
                     startActivity(intent);
                 }
