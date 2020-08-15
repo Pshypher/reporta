@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.example.android.reporta.admin.customviews.PercentArcView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center"
+        android:padding="2dp"
+        app:actualPercentColor="@color/indian_red2"
+        app:showPercentage="true"
+        app:totalPercentColor="@color/opaque_gray1" />
+</FrameLayout>

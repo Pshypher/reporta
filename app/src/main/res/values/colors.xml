@@ -6,4 +6,13 @@
 
     <color name="colorOnBoarding">#0E1C66</color>
     <color name="colorCustomDialog">#88000000</color>
+
+    <color name="cyan1">#147AD6</color>
+    <color name="cyan2">#79D2DE</color>
+    <color name="indian_red1">#EB5757</color>
+    <color name="indian_red2">#EC6666</color>
+    <color name="opaque_gray1">#5A7388A9</color>
+    <color name="orange1">#D66514</color>
+    <color name="purple1">#9B51E0</color>
+
 </resources>

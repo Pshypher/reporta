@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="PercentArcView">
+        <attr name="showPercentage" format="boolean" />
+        <attr name="actualPercentColor" format="reference|color" />
+        <attr name="totalPercentColor" format="reference|color" />
+    </declare-styleable>
+</resources>
