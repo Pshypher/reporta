@@ -166,7 +166,7 @@
         app:layout_constraintEnd_toStartOf="@id/sign_up"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/logo_facebook" />
+        app:layout_constraintTop_toBottomOf="@id/login_facebook" />
 
     <TextView
         android:id="@+id/sign_up"

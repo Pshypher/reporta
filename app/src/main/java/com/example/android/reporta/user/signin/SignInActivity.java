@@ -17,6 +17,12 @@ import android.widget.Toast;
 
 import com.example.android.reporta.R;
 import com.example.android.reporta.user.signup.basic.BasicSignUpActivity;
+import com.facebook.AccessToken;
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -27,6 +33,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.GoogleAuthProvider;
 
@@ -35,14 +42,20 @@ import static android.content.Intent.ACTION_DIAL;
 public class SignInActivity extends AppCompatActivity {
 
     private static final int RC_SIGN_IN = 1;
+    private static final String SIGN_IN_SUCCESSFUL = "Sign In Successful";
     TextView mTextViewSignUp;
     EditText mEditTextEmailAddress;
     EditText mEditTextPassword;
     Button mButtonContinue;
     ImageButton mButtonPhone;
+    //Google sign-in button
     SignInButton mSignInButton;
 
     private GoogleSignInClient mGoogleSignInClient;
+    //Facebook login in button
+    private LoginButton mLoginButton;
+    //Facebook callback
+    private CallbackManager mCallbackManager;
 
     private FirebaseAuth mFirebaseAuth;
 
@@ -58,6 +71,7 @@ public class SignInActivity extends AppCompatActivity {
         signInUser();
         navigateToSignUp();
         handleGoogleSignUp();
+        handleFacebookSignUp();
         handleEmergencyCall();
     }
 
@@ -96,6 +110,47 @@ public class SignInActivity extends AppCompatActivity {
                 signInWithGoogle();
             }
         });
+    }
+
+    private void handleFacebookSignUp() {
+        mLoginButton.setPermissions("email", "public_profile");
+        mLoginButton.registerCallback(mCallbackManager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+                handleFacebookAccessToken(loginResult.getAccessToken());
+            }
+
+            @Override
+            public void onCancel() {
+                Toast.makeText(SignInActivity.this, "Cancelled", Toast.LENGTH_SHORT)
+                        .show();
+            }
+
+            @Override
+            public void onError(FacebookException error) {
+                Toast.makeText(SignInActivity.this, "Error: " + error.getMessage(),
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
+
+    private void handleFacebookAccessToken(AccessToken accessToken) {
+        AuthCredential credential = FacebookAuthProvider.getCredential(accessToken.getToken());
+        mFirebaseAuth.signInWithCredential(credential).addOnCompleteListener(
+                new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(SignInActivity.this, "Sign In Successful", Toast.LENGTH_SHORT)
+                                    .show();
+                        }
+                        else {
+                            Toast.makeText(SignInActivity.this,
+                                    "Error: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
     }
 
     private void navigateToSignUp() {
@@ -155,6 +210,7 @@ public class SignInActivity extends AppCompatActivity {
                 Toast.makeText(this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
             }
         }
+        mCallbackManager.onActivityResult(requestCode, resultCode, data);
     }
 
     private void handleGoogleAccessToken(String idToken) {
@@ -164,7 +220,7 @@ public class SignInActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(SignInActivity.this, "Sign In Successful",
+                            Toast.makeText(SignInActivity.this, SIGN_IN_SUCCESSFUL,
                                     Toast.LENGTH_SHORT).show();
                         }
                     }
@@ -178,7 +234,9 @@ public class SignInActivity extends AppCompatActivity {
         mButtonContinue = findViewById(R.id.btn_continue);
         mButtonPhone = findViewById(R.id.phone);
         mSignInButton = findViewById(R.id.login_google);
+        mLoginButton = findViewById(R.id.login_facebook);
 
+        mCallbackManager = CallbackManager.Factory.create();
         mFirebaseAuth = FirebaseAuth.getInstance();
     }
 }
