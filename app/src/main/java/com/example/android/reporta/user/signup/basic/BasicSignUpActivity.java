@@ -267,7 +267,7 @@ public class BasicSignUpActivity extends AppCompatActivity {
                 GoogleSignInAccount account = task.getResult(ApiException.class);
                 handleGoogleAccessToken(account.getIdToken());
             } catch (ApiException e) {
-                Toast.makeText(this, "Errro: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
             }
         }
         mCallbackManager.onActivityResult(requestCode, resultCode, data);
