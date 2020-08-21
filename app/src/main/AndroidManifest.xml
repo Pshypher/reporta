@@ -4,6 +4,7 @@
     package="com.example.android.reporta">
 
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:allowBackup="true"
@@ -13,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".user.signin.SigninActivity"></activity>
+        <activity android:name=".user.signin.SignInActivity"></activity>
         <activity
             android:name=".user.onboarding.OnBoardingActivity"
             android:theme="@style/OnboardingTheme" />

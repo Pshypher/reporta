@@ -108,7 +108,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/password" />
 
-    <!-- Or register with -->
+    <!-- Or sign in with -->
     <TextView
         android:id="@+id/or_register"
         android:layout_width="wrap_content"
@@ -127,31 +127,27 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btn_continue" />
 
-    <ImageButton
-        android:id="@+id/logo_google"
-        android:layout_width="40dp"
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/login_google"
+        android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginTop="8dp"
-        android:layout_marginRight="28dp"
-        android:background="@drawable/ellipse"
-        android:elevation="10dp"
-        android:src="@drawable/ic_google"
-        app:layout_constraintEnd_toStartOf="@id/logo_facebook"
-        app:layout_constraintHorizontal_chainStyle="packed"
+        android:layout_marginEnd="32dp"
+        android:layout_marginStart="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/or_register" />
 
-    <ImageButton
-        android:id="@+id/logo_facebook"
-        android:layout_width="40dp"
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/login_facebook"
+        android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginTop="8dp"
-        android:background="@drawable/ellipse"
-        android:elevation="10dp"
-        android:src="@drawable/ic_facebook"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/logo_google"
-        app:layout_constraintTop_toBottomOf="@id/or_register" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/login_google" />
 
     <!-- Don't have an account? -->
     <TextView
@@ -167,19 +163,19 @@
         android:text="@string/no_account"
         android:textColor="#081452"
         android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@id/login"
+        app:layout_constraintEnd_toStartOf="@id/sign_up"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/logo_facebook" />
+        app:layout_constraintTop_toBottomOf="@id/login_facebook" />
 
     <TextView
-        android:id="@+id/login"
+        android:id="@+id/sign_up"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="4dp"
         android:fontFamily="@font/avenir"
         android:letterSpacing="0.01"
-        android:text="@string/login"
+        android:text="@string/sign_up"
         android:textColor="#ED9E28"
         android:textSize="16sp"
         app:layout_constraintBaseline_toBaselineOf="@id/owns_account"
@@ -197,7 +193,7 @@
         android:padding="16dp"
         android:src="@drawable/ic_phone"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/login" />
+        app:layout_constraintTop_toBottomOf="@id/sign_up" />
 
     <!-- Admin Sign Up -->
 
