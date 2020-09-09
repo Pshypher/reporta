@@ -7,7 +7,11 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
+
 import android.os.Build;
+
+import android.net.Uri;
+
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -16,6 +20,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.android.reporta.R;
@@ -40,6 +46,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.GoogleAuthProvider;
+import static android.content.Intent.ACTION_DIAL;
 
 public class BasicSignUpActivity extends AppCompatActivity implements
         SignUpTipDialogFragment.OnDialogDismissedListener {
@@ -54,9 +61,11 @@ public class BasicSignUpActivity extends AppCompatActivity implements
     private static final int RC_SIGN_IN = 1;
     private static int MINIMUM_PASSWORD_CHAR = 6;
 
+    private TextView mTextViewLogin;
     private EditText mEditTextEmailAddress;
     private EditText mEditTextPassword;
     private Button mContinueButton;
+    private ImageButton mButtonPhone;
     //Facebook login in button
     private LoginButton mLoginButton;
     //Google sign in button
@@ -80,16 +89,48 @@ public class BasicSignUpActivity extends AppCompatActivity implements
 
         showDialog();
 
-        /*initFields();
+        initFields();
         verifyUserInput();
         continueSignUp();
         handleGoogleSignUp();
-        handleFacebookSignUp();*/
-
+        handleFacebookSignUp();
+//        navigateToLogin();
+        handleEmergencyCall();
     }
 
+    private void handleEmergencyCall() {
+        mButtonPhone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent phoneIntent = new Intent(ACTION_DIAL);
+                Uri phoneNumber = Uri.parse("tel:119");
+                phoneIntent.setData(phoneNumber);
+                if (phoneIntent.resolveActivity(getPackageManager()) != null) {
+                    // TODO: Consider calling
+                    //    ActivityCompat#requestPermissions
+                    // here to request the missing permissions, and then overriding
+                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                    //                                          int[] grantResults)
+                    // to handle the case where the user grants the permission. See the documentation
+                    // for ActivityCompat#requestPermissions for more details.
+                    startActivity(phoneIntent);
+                }
+            }
+        });
+    }
 
-    /*private void continueSignUp() {
+    /*private void navigateToLogin() {
+        mTextViewLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(BasicSignUpActivity.this, SignInActivity.class));
+                finish();
+            }
+        });
+    }*/
+
+
+    private void continueSignUp() {
         mContinueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -234,7 +275,7 @@ public class BasicSignUpActivity extends AppCompatActivity implements
                 GoogleSignInAccount account = task.getResult(ApiException.class);
                 handleGoogleAccessToken(account.getIdToken());
             } catch (ApiException e) {
-                Toast.makeText(this, "Errro: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
             }
         }
         mCallbackManager.onActivityResult(requestCode, resultCode, data);
@@ -255,14 +296,16 @@ public class BasicSignUpActivity extends AppCompatActivity implements
     }
 
     private void initFields() {
+        mTextViewLogin = findViewById(R.id.login);
         mEditTextEmailAddress = findViewById(R.id.email_address);
         mEditTextPassword = findViewById(R.id.password);
         mContinueButton = findViewById(R.id.btn_continue);
+        mButtonPhone = findViewById(R.id.phone);
         mLoginButton = findViewById(R.id.login_facebook);
         mSignInButton = findViewById(R.id.login_google);
         mCallbackManager = CallbackManager.Factory.create();
         mFirebaseAuth = FirebaseUtils.getFirebaseAuth();
-    }*/
+    }
 
     private void showDialog() {
 
@@ -283,7 +326,6 @@ public class BasicSignUpActivity extends AppCompatActivity implements
 
     @Override
     public void onDismiss() {
-
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             getWindow().setStatusBarColor(getResources().getColor(android.R.color.white));
             getWindow().setNavigationBarColor(getResources().getColor(android.R.color.white));

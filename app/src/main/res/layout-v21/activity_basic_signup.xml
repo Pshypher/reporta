@@ -179,7 +179,7 @@
         android:fontFamily="@font/avenir"
         android:textColor="#ED9E28" />
 
-    <ImageView
+    <ImageButton
         android:id="@+id/phone"
         android:layout_width="54dp"
         android:layout_height="54dp"
