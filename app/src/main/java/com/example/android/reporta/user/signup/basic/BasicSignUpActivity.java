@@ -287,6 +287,6 @@ public class BasicSignUpActivity extends AppCompatActivity implements
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             getWindow().setStatusBarColor(getResources().getColor(android.R.color.white));
             getWindow().setNavigationBarColor(getResources().getColor(android.R.color.white));
-        };
+        }
     }
 }

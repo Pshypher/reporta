@@ -22,7 +22,7 @@ public class PercentArcView extends View {
 
     private static final String TAG = "PercentArcView";
 
-    private float _ratio = 0.76f;
+    private float _ratio = 0.50f;
     // private float _ratio;
     private float _radius;
 
